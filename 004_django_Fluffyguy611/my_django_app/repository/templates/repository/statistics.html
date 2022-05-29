@@ -1,0 +1,31 @@
+{% extends "repository/base.html" %}
+{% load static %}
+{% block content %}
+
+{% for rent in rents %}
+<div class="album py-5 bg-light">
+    <div class="contrainer">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h1 class="mb-0 h1"> {{ rent.user }}</h1>
+                        <h4 class="mb-0 h4"> {{ rent.depositet_book }}</h4>
+                        <h4 class="mb-0 h4"> {{ rent.depositet_movie }}</h4>
+                        <h4 class="mb-0 h4"> {{ rent.depositet_cd }}</h4>
+                        <h4 class="mb-0 h4"> {{ rent.deposit_date }}</h4>
+                        <h4 class="mb-0 h4"> {{ rent.deposit_length }}</h4>
+                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

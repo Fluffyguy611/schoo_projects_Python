@@ -1,0 +1,41 @@
+{% extends "repository/base.html" %}
+{% load static %}
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="pb-3 h5">{{category.name|title}}</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+        <a class="nav-lin" href="add/">Add New</a>
+
+         {% for product in object_list %}
+        {% if product.is_active or product.deposit %}{{ User }}
+
+
+        <div class="col">
+          <div class="card shadow-sm">
+
+            <div class="card-body">
+              <p class="card-text">
+                <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+                <h6 class="text-dark text-decoration-none">See details here</h6>
+                <a href="{% url 'repository:edit_movie' product.pk %}" class="btn btn-sm btn-outline-secondary" role="button" aria-pressed="true">Edit</a>
+                <a href="{% url 'repository:delete_movie' product.pk %}" class="btn btn-sm btn-outline-secondary" role="button" aria-pressed="true">Delete</a>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted"></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

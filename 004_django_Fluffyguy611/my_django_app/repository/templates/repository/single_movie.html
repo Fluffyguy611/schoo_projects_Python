@@ -1,0 +1,34 @@
+{% extends 'repository/base.html' %}
+{% load static %}
+{% block title %}
+{% if category %}{{ category.slug }}{% else %}object_list{% endif %}
+{% endblock %}
+{% block content %}
+<main class="pt-5">
+    <div class="row g-3">
+        <div class="col-md-5 col-lg-5 order-md-first bg-light">
+        </div>
+        <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
+            <h1 class="mb-0 h1">{{ movie.title }}</h1>
+            <p><span class="lead">{{ movie.director }}</span> (Director)</p>
+            <p></p>
+            <div class="border">
+                <div class="col border-bottom">
+                    <div class="row p-3">
+                        <div class="col-6">Genre</div>
+                        <div class="col-6 text-end"><span class="h4 fw-bold">{{ movie.genre_1 }}|{{ movie.genre_2 }}|{{ movie.genre_3 }}</span></div>
+                        <div class="col-6 text-end"><span class="h6 fw-bold">{{ movie.description }}</span></div>
+                    </div>
+                </div>
+
+            </div>
+            {% if movie.is_active %}
+            <a href="/rent/" class="btn btn-sm btn-outline-secondary" role="button" aria-pressed="true">Rent</a>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+        </div>
+    </main>
+</div>
+{% endblock %}
